@@ -16,11 +16,9 @@ const teamMembers = [
   new Intern("Becky", 3, "becky@becky.com", "UofA"),
   new Intern("Shelly", 4, "shelly@shelly.com", "UofA")
 ];
-/***
- * THIS PROJECT IS NOT COMPLETE.
- * YOU WILL NEED TO BUILD YOUR HTML LAYOUTS
- * PROMPT THE USER FOR ALL OF THEIR DIFFERENT TEAM MEMBERS
- */
+
+
+
 
 async function init() {
   render(teamMembers);
