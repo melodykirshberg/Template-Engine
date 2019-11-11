@@ -39,22 +39,22 @@ const engineerQuestions = [
   {
       type: "input",
       name: "name",
-      message: "What's the engineers's name?",
+      message: "What's the engineers' name?",
   },
   {
       type: "input",
       name: "id",
-      message: "What's the engineers's ID number?",
+      message: "What's the engineers' ID number?",
   },
   {
       type: "input",
       name: "email",
-      message: "What's the engineers's email?",
+      message: "What's the engineers' email?",
   },
   {
       type: "input",
       name: "gitty",
-      message: "What's the engineers's GitHub username?",
+      message: "What's the engineers' GitHub username?",
   }
 ];
 // questions to ask for intern position
@@ -84,7 +84,7 @@ const internQuestions = [
 
 async function init() {
 
-  
+
   render(teamMembers);
 }
 
