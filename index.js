@@ -14,78 +14,121 @@ const teamMembers = [];
 // questions to ask for manager position
 const managerQuestions = [
   {
-      type: "input",
-      name: "name",
-      message: "What's the manager's name?",
+    type: "input",
+    name: "name",
+    message: "What's the manager's name?",
   },
   {
-      type: "input",
-      name: "id",
-      message: "What's the manager's ID number?",
+    type: "number",
+    name: "id",
+    message: "What's the manager's ID number?",
   },
   {
-      type: "input",
-      name: "email",
-      message: "What's the manager's email?",
+    type: "input",
+    name: "email",
+    message: "What's the manager's email?",
   },
   {
-      type: "input",
-      name: "officeNumber",
-      message: "What's the manager's office number?",
+    type: "number",
+    name: "officeNumber",
+    message: "What's the manager's office number?",
   }
 ];
 // questions to ask for engineer position
 const engineerQuestions = [
   {
-      type: "input",
-      name: "name",
-      message: "What's the engineers' name?",
+    type: "input",
+    name: "name",
+    message: "What's the engineer's name?",
   },
   {
-      type: "input",
-      name: "id",
-      message: "What's the engineers' ID number?",
+    type: "number",
+    name: "id",
+    message: "What's the engineer's ID number?",
   },
   {
-      type: "input",
-      name: "email",
-      message: "What's the engineers' email?",
+    type: "input",
+    name: "email",
+    message: "What's the engineer's email?",
   },
   {
-      type: "input",
-      name: "gitty",
-      message: "What's the engineers' GitHub username?",
+    type: "input",
+    name: "gitty",
+    message: "What's the engineer's GitHub username?",
   }
 ];
 // questions to ask for intern position
 const internQuestions = [
   {
-      type: "input",
-      name: "name",
-      message: "What's the intern's name?",
+    type: "input",
+    name: "name",
+    message: "What's the intern's name?",
   },
   {
-      type: "input",
-      name: "id",
-      message: "What's the intern's ID number?",
+    type: "number",
+    name: "id",
+    message: "What's the intern's ID number?",
   },
   {
-      type: "input",
-      name: "email",
-      message: "What's the intern's email?",
+    type: "input",
+    name: "email",
+    message: "What's the intern's email?",
   },
   {
-      type: "input",
-      name: "school",
-      message: "What's the intern's school?",
+    type: "input",
+    name: "school",
+    message: "What's the intern's school?",
   }
 ];
 
 
 async function init() {
+  try {
+    const response = await inquirer.prompt(managerQuestions);
+    teamMembers
+      .push(new Manager(
+        response.name,
+        response.id,
+        response.email,
+        response.officeNumber));
+    let addMember = true;
+    while (addMember) {
+      const answer = await inquirer.prompt({
+        type: "list",
+        message: "Select team member role: ",
+        name: "role",
+        choices: ["Engineer", "Intern", "None"]
+      });
 
+      switch (answer.role) {
 
-  render(teamMembers);
+        case "Engineer":
+          const response = await inquirer.prompt(engineerQuestions);
+          teamMembers
+            .push(new Engineer(
+              response.name,
+              response.id,
+              response.email,
+              response.gitty
+            ));
+          break;
+        case "Intern":
+          const res = await inquirer.prompt(internQuestions);
+          teamMembers
+            .push(new Intern(
+              res.name,
+              res.id,
+              res.email,
+              res.school
+            ));
+          break;
+        default:
+          addMember = !addMember;
+      }
+    }
+    render(teamMembers);
+  } catch (err) {
+    console.log(err);
+  }
 }
-
 init();
