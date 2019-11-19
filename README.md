@@ -15,6 +15,7 @@ In your terminal type:
 * For further instructions, visit https://help.github.com.
 
 ## Screenshot
+![alt text](images/tempengine.gif "Demo")
 
 ## Credits
 [UABootCamp](https://bootcamp.ce.arizona.edu/coding/)
