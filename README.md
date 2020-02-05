@@ -5,7 +5,8 @@ This is a software engineering team generator command line application. The appl
 
 ## Table of Contents
 * [Installation](#installation)
-* [Screenshot](#screenshot)
+* [Technologies-Libraries](#technologies-libraries)
+* [Demo](#demo)
 * [Credits](#credits)
 
 ## Installation
@@ -14,8 +15,12 @@ In your terminal type:
 * Open in Visual Studio to build and run.
 * For further instructions, visit https://help.github.com.
 
-## Screenshot
+## Technologies-Libraries
+JavaScript - Node.js - Inquirer - HTML 
+
+## Demo
 ![alt text](images/tempengine.gif "Demo")
 
 ## Credits
+[Melody Kirshberg](https://github.com/verlitas)  
 [UABootCamp](https://bootcamp.ce.arizona.edu/coding/)
